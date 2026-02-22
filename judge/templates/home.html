@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judge.sh | Performance Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep: #0a0a0a;
+            --surface-low: #141414;
+            --surface-mid: #1c1c1c;
+            --accent: #ffffff;
+            --text-dim: #a1a1aa;
+            --border-color: #262626;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* Sharp, minimalist navigation */
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section - Bold & Typography driven */
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            color: var(--text-dim);
+            max-width: 500px;
+            font-size: 1.1rem;
+        }
+
+        /* Bento Grid Style Feature Cards */
+        .bento-card {
+            background: var(--surface-low);
+            border: 1px solid var(--border-color);
+            border-radius: 4px; /* Hard edges for professional feel */
+            padding: 2.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .bento-card:hover {
+            border-color: var(--accent);
+        }
+
+        .bento-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Monospace Code Terminal */
+        .terminal-window {
+            background: var(--surface-low);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: var(--surface-mid);
+            padding: 8px 16px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-line { padding: 4px 16px; border-left: 2px solid transparent; }
+        .code-line:hover { background: #1f1f1f; border-left-color: var(--accent); }
+
+        /* Industrial Buttons */
+        .btn-industrial {
+            background: var(--accent);
+            color: var(--bg-deep);
+            border: none;
+            border-radius: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            padding: 14px 28px;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-outline-industrial {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            padding: 14px 28px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">Judge.sh</a>
+            <div class="d-none d-md-flex gap-4 small align-items-center">
+                <a href="#" class="text-dim text-decoration-none">Docs</a>
+                <a href="#" class="text-dim text-decoration-none">Challenges</a>
+                <a href="#" class="btn-industrial py-2 px-3">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5 my-lg-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="badge border border-secondary text-dim mb-3 px-3 py-2 rounded-pill small">v2.4 Engine Live</div>
+                <h1 class="hero-title">ENGINEERING<br>PRECISION.</h1>
+                <p class="hero-subtitle mb-4">
+                    The low-latency online judge for developers who prioritize performance. No fluff. Just raw compilation speed and rigorous test cases.
+                </p>
+                <div class="d-flex gap-3">
+                    <button class="btn-industrial">Create Session</button>
+                    <button class="btn-outline-industrial">Read Whitepaper</button>
+                </div>
+            </div>
+            
+            <div class="col-lg-5">
+                <div class="terminal-window">
+                    <div class="terminal-header d-flex justify-content-between">
+                        <span>Terminal — Output</span>
+                        <span>0.04s</span>
+                    </div>
+                    <div class="py-3">
+                        <div class="code-line text-secondary">$ judge run main.cpp</div>
+                        <div class="code-line"><span class="text-success">[PASS]</span> Test Case #1</div>
+                        <div class="code-line"><span class="text-success">[PASS]</span> Test Case #2</div>
+                        <div class="code-line"><span class="text-success">[PASS]</span> Test Case #3</div>
+                        <div class="code-line text-warning">[WARN] Mem usage: 4.2MB</div>
+                        <div class="code-line mt-3 text-info">Verdict: ACCEPTED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-8">
+                <div class="bento-card h-100">
+                    <h3>High-Frequency Judging</h3>
+                    <p class="text-dim">Our kernel-level execution environment ensures that your code is judged with microsecond precision. Perfect for high-stakes technical interviews or competitive sprints.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bento-card h-100 bg-white text-dark">
+                    <h3>52 Languages</h3>
+                    <p class="text-muted">From C++23 to Zig and Rust. We maintain the latest stable compilers.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bento-card">
+                    <h3>Anti-Cheat</h3>
+                    <p class="text-dim">Integrated plagiarism detection using advanced AST comparison.</p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="bento-card">
+                    <h3>Live Telemetry</h3>
+                    <p class="text-dim">Watch your code execution in real-time. Analyze memory spikes and CPU throttling as they happen during the judging process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container py-5 mt-5 border-top border-secondary text-center">
+        <p class="text-dim small text-uppercase">Standardized Engineering Environment &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
