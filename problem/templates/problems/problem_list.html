@@ -1,0 +1,35 @@
+<h2>All Problems</h2>
+
+<!-- Filter Buttons -->
+<a href="?">All</a>
+<a href="?difficulty=Easy">Easy</a>
+<a href="?difficulty=Medium">Medium</a>
+<a href="?difficulty=Hard">Hard</a>
+
+<hr>
+
+{% for problem in page_obj %}
+    <div>
+        <h3>
+            <a href="{% url 'problem_detail' problem.id %}">
+                {{ problem.title }}
+            </a>
+        </h3>
+        <p>Difficulty: {{ problem.difficulty }}</p>
+    </div>
+{% empty %}
+    <p>No problems found.</p>
+{% endfor %}
+
+<!-- Pagination -->
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+</div>

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +39,28 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'judge',
+    'accounts',
+    'problem',
+    'submission',
 ]
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Career Guidance Admin",
+    "site_header": "Mentor Panel",
+    "site_brand": "Career Portal",
+    "welcome_sign": "Welcome Adarsh!",
+    "copyright": "Career Portal 2026",
+    "topmenu_links": [
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+    ],
+    "icons": {
+        "auth.User": "fas fa-user",
+        "yourapp.Mentor": "fas fa-chalkboard-teacher",
+    },
+}
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'signup'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
